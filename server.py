@@ -12,19 +12,23 @@ serverSocket.listen(1)
 while True:
     # Establish the connection
     print('Ready to serve...')
-    connectionSocket, addr = serverSocket.accept()  # Fill in start
+    # Fill in start
+    connectionSocket, addr = serverSocket.accept()
     # Fill in end
 
     try:
-        message = connectionSocket.recv(1024).decode()  # Fill in start
+        # Fill in start
+        message = connectionSocket.recv(1024).decode()  
         # Fill in end
+        
         filename = message.split()[1]
 
         f = open(filename[1:])
-        outputdata = f.read()  # Fill in start
-        # Fill in end
+        # Fill in start
+        outputdata = f.read()
         f.close()
-
+        # Fill in end
+    
         # Send one HTTP header line into socket
         # Fill in start
         connectionSocket.send("HTTP/1.1 200 OK\r\n\r\n".encode())
